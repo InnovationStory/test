@@ -1,0 +1,73 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<section class="price section-padding " data-scroll-index="2">
+    <div class="container">
+        <div class="row">
+            
+            
+            <div class="section-head text-center col-sm-12">
+                <h4>Les Processus </h4>
+            
+            </div>
+            <div class="pricing-tables full-width">
+
+                <div class="row">
+
+                    {% for pr in process %}
+                    
+                    
+
+                    <div class="col-lg-4">
+                        <div class="item text-center active bg-img mb-md50" data-background="img/03.jpg">
+
+                       
+                                <h4>{{ pr.process_name }}</h4>
+                       
+
+                            <div class="value">
+                            
+                                <p>{{pr.presentation|safe}}</p>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                            
+                                    <li><a href="{% url 'activity_print' pr.pk %}">Display </a><i class="true fas fa-check"></i></li>
+
+
+
+
+
+
+
+
+                                    
+                                </ul>
+                            </div>
+
+                 
+                        </div>
+                    </div>
+
+                    {% empty %}   
+                    
+                    <div class="section-head text-center col-sm-12">
+                        <li><a href="" class="butn butn-light mt-30"><span>Commencer à créer votre premier projet</span></a></li>  
+                    </div>
+                              
+                       {% endfor %} 
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

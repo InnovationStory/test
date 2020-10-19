@@ -1,0 +1,736 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title>INEDIT PROCESS HOME </title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico">
+
+  <!-- CSS here -->
+      <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/slicknav.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+
+<body>
+   <!-- Preloader Start -->
+   <div id="preloader-active">
+      <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+               <div class="preloader-circle"></div>
+               <div class="preloader-img pere-text">
+                  <img src="{% static 'assets/img/logo/loder.jpg" alt="">
+               </div>
+            </div>
+      </div>
+   </div>
+   <!-- Preloader Start-->
+ 
+
+   <header>
+      <!-- Header Start -->
+      <div class="header-area header_area header-transparent">
+              <div class="main-header">
+              <div class="header-bottom  header-sticky">
+                      <div class="container-fluid">
+                          <div class="row align-items-center">
+                              <!-- Logo -->
+                              <div class="col-xl-2 col-lg-1 col-md-1">
+                                  <div class="logo">
+                                  <a href="index.html"><img src="{% static 'assets/img/logo/Inedit.jpg' %}" alt=""></a>
+                                  </div>
+                              </div>
+                              <div class="col-xl-8 col-lg-8 col-md-8">
+                                  <!-- Main-menu -->
+                                  <div class="main-menu f-right d-none d-lg-block">
+                                      <nav> 
+                                          <ul id="navigation">                                                                                                                                     
+                                              <li><a href="{% url 'home' %}">Home</a></li>
+                                              <li><a href="{% url 'data_base' %}">DataBase</a></li>
+                                              <li><a href="{% url 'add_items' %}">Add items</a></li>
+                                              <li><a href="{% url 'search_items' %}">Search items</a></li>
+                                        
+              
+                                          </ul>
+                                      </nav>
+                                  </div>
+                              </div>             
+                              <div class="col-xl-2 col-lg-3 col-md-3">
+                                  <div class="header-right-btn f-right d-none d-lg-block">
+                                      <a href="#" class="btn header-btn">Contact Now</a>
+                                  </div>
+                              </div>
+                              <!-- Mobile Menu -->
+                              <div class="col-12">
+                                  <div class="mobile_menu d-block d-lg-none"></div>
+                              </div>
+                          </div>
+                      </div>
+              </div>
+              </div>
+      </div>
+      <!-- Header End -->
+      </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <main>
+      <!-- Hero Start-->
+      <div class="slider-area slider-bg ">
+         <div class="single-slider d-flex align-items-center slider-height2 ">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-xl-12">
+                         <div class="hero-cap text-center pt-50">
+                             <h2>{{ process.process_name }}</h2>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <!-- Slider Shape -->
+         <div class="slider-shape d-none d-lg-block">
+             <img class="slider-shape1" src="{% static 'assets/img/hero/top-left-shape.png' %}" alt="">
+             <img class="slider-shape2" src="{% static 'assets/img/hero/right-top-shape.png' %}" alt="">
+             <img class="slider-shape3" src="{% static 'assets/img/hero/left-botom-shape.png' %}" alt="">
+         </div>
+     </div>
+     <!--Hero End -->
+      <!--================Blog Area =================-->
+      <section class="blog_area single-post-area section-padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 posts-list">
+                  <div class="single-post">
+                 
+                     <div class="blog_details">
+                        <h2>Process definition</h2>
+                     
+         
+                        <div class="quote-wrapper">
+                           <div class="quotes">
+                          {{ process.definition|safe }}
+                           </div>
+                        </div>
+              
+                     </div>
+                  </div>
+             
+            
+                  <div class="comments-area">
+                     <h4>Involved stakeholders</h4>
+
+
+
+                                       
+                     {% for act in process.activity_process.all %}
+                           
+                     {% if act.task_process.exists %}
+                     
+                     {% for task in act.task_process.all %}
+                       
+                     {% if  task.actor_process.exists %}
+                     {% for var in  task.actor_process.all %}
+                       
+                     <div class="comment-list">
+                        <div class="single-comment justify-content-between d-flex">
+
+                           <div class="user justify-content-between d-flex">
+                              <div class="thumb">
+                                 <img src="{% static 'assets/img/comment/test1.png' %}" alt="">
+                              </div>
+                              <div class="desc">
+                                 <p class="comment">
+                                 {{ var.definition}}
+                                 </p>
+                                 <div class="d-flex justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                       <h5>
+                                          <a href="#">{{ var.actor_name}} {{ var.prenom}}</a>
+                                       </h5>
+                                      
+                                    </div>
+                                    <div class="reply-btn">
+                                       <a href="{% url 'carte_acteur' actor.pk %}"  class="btn-reply text-uppercase" onclick="window.open(this.href, 'nom de ta fenêtre', 'height=500, width=800, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no'); return(false);"> Actor Carte</a>
+                                  
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                      
+                      {% endfor %}
+                  
+                  
+                  </div>
+              
+
+              
+
+                  <div class="section-top-border">
+                     <h3 class="mb-30">Input</h3>
+                     <div class="progress-table-wrap">
+                        <div class="progress-table">
+                 
+                         
+            
+                           
+
+
+                           <table  class="progress-table" >
+                              <thead>
+                                  <tr >
+                                      <th  style="text-align: center; "><a>Activity</a></th>
+                                      <th  style="text-align: center; "><a>Task</a></th>
+                                      <th style="text-align: center;"><a>Input</a></th>
+                                     
+                                     
+                                
+                                      
+                                  </tr>
+                                 
+                              </thead>
+                              <tbody >
+                         
+                                
+                                  {% for act in process.activity_process.all %}
+                           
+                               {% if act.task_process.exists %}
+                               
+                               {% for task in act.task_process.all %}
+                                 
+                               {% if  task.ressource_process.exists %}
+                               {% for var in  task.ressource_process.all %}
+                                 
+                                  <tr >
+                                     <td  style="text-align: center;"><p>{{ act.activity_name  }}</p></td>
+                                     <td  style="text-align: center;"><p>{{ task.name  }}</p></td>
+                                        
+                                     <td style="text-align: center;" > <p>{{ var.input_name }}</p> </td>
+                     
+                                    
+                                  
+                                  </tr>
+                                  {% endfor %}
+                                  {% endif %}
+                                  {% endfor %}
+                                  {% endif %}
+                                
+                                {% endfor %}
+                               
+                              </tbody>  
+                          </table>
+
+
+                           
+                        </div>
+                     </div>
+                  </div>
+                  
+
+
+
+
+
+                  <div class="section-top-border">
+                     <h3 class="mb-30">Output</h3>
+                     <div class="progress-table-wrap">
+                        <div class="progress-table">
+                 
+                         
+            
+                           
+
+
+                           <table  class="progress-table" >
+                              <thead>
+                                  <tr >
+                                      <th  style="text-align: center; "><a>Activity</a></th>
+                                      <th  style="text-align: center; "><a>Task</a></th>
+                                      <th style="text-align: center;"><a>Output</a></th>
+                                     
+                                     
+                                
+                                      
+                                  </tr>
+                                 
+                              </thead>
+                              <tbody >
+                         
+                                
+                                  {% for act in process.activity_process.all %}
+                           
+                               {% if act.task_process.exists %}
+                               
+                               {% for task in act.task_process.all %}
+                                 
+                               {% if  task.output_process.exists %}
+                               {% for var in  task.output_process.all %}
+                                 
+                                  <tr >
+                                     <td  style="text-align: center;"><p>{{ act.activity_name  }}</p></td>
+                                     <td  style="text-align: center;"><p>{{ task.name  }}</p></td>
+                                        
+                                     <td style="text-align: center;" > <p>{{ var.output_name }}</p> </td>
+                     
+                                    
+                                  
+                                  </tr>
+                                  {% endfor %}
+                                  {% endif %}
+                                  {% endfor %}
+                                  {% endif %}
+                                
+                                {% endfor %}
+                               
+                              </tbody>  
+                          </table>
+
+
+                           
+                        </div>
+                     </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="section-top-border">
+                     <h3 class="mb-30">Technologies</h3>
+                     <div class="progress-table-wrap">
+                        <div class="progress-table">
+                 
+                         
+            
+                           
+
+
+                           <table  class="progress-table" >
+                              <thead>
+                                  <tr >
+                                      <th  style="text-align: center; "><a>Activity</a></th>
+                                      <th  style="text-align: center; "><a>Task</a></th>
+                                      <th style="text-align: center;"><a>Technology/Equipment</a></th>
+                                      <th style="text-align: center;" ><a>Technology's maturity</a></th>
+                                     
+                                
+                                      
+                                  </tr>
+                                 
+                              </thead>
+                              <tbody >
+                         
+                                
+                                  {% for act in process.activity_process.all %}
+                           
+                               {% if act.task_process.exists %}
+                               
+                               {% for task in act.task_process.all %}
+                                 
+                               {% if  task.tech_process.exists %}
+                               {% for te in  task.tech_process.all %}
+                                 
+                                  <tr >
+                                     <td  style="text-align: center;"><p>{{ act.activity_name  }}</p></td>
+                                     <td  style="text-align: center;"><p>{{ task.name  }}</p></td>
+                                        
+                                     <td style="text-align: center;" > <p>{{ te.technologie_name }}</p> </td>
+                                     <td style="text-align: center;"><p>{{ te.technology_maturity  }}</p> </td>
+                                    
+                                  
+                                  </tr>
+                                  {% endfor %}
+                                  {% endif %}
+                                  {% endfor %}
+                                  {% endif %}
+                                
+                                {% endfor %}
+                               
+                              </tbody>  
+                          </table>
+
+
+                           
+                        </div>
+                     </div>
+                  </div>
+
+               
+
+
+
+                  <div class="section-top-border">
+                     <h3 class="mb-30">Skills</h3>
+                     <div class="progress-table-wrap">
+                        <div class="progress-table">
+                 
+                         
+            
+                           
+
+
+                           <table  class="progress-table" >
+                              <thead>
+                                  <tr >
+                                      <th  style="text-align: center; "><a>Activity</a></th>
+                                      <th  style="text-align: center; "><a>Task</a></th>
+                                      <th style="text-align: center;"><a>Skills</a></th>
+                                      <th style="text-align: center;" ><a>Skills' maturity</a></th>
+                                     
+                                
+                                      
+                                  </tr>
+                                 
+                              </thead>
+                              <tbody >
+                         
+                                
+                                  {% for act in process.activity_process.all %}
+                           
+                               {% if act.task_process.exists %}
+                               
+                               {% for task in act.task_process.all %}
+                                 
+                               {% if  task.skill_process.exists %}
+                               {% for var in  task.skill_process.all %}
+                                 
+                                  <tr >
+                                     <td  style="text-align: center;"><p>{{ act.activity_name  }}</p></td>
+                                     <td  style="text-align: center;"><p>{{ task.name  }}</p></td>
+                                        
+                                     <td style="text-align: center;" > <p>{{ var.skills_name }}</p> </td>
+                                     <td style="text-align: center;"><p>{{ var.skills_maturity  }}</p> </td>
+                                    
+                                  
+                                  </tr>
+                                  {% endfor %}
+                                  {% endif %}
+                                  {% endfor %}
+                                  {% endif %}
+                                
+                                {% endfor %}
+                               
+                              </tbody>  
+                          </table>
+
+
+                           
+                        </div>
+                     </div>
+                  </div>
+
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="section-top-border">
+                     <h3 class="mb-30">Decisions</h3>
+                     <div class="progress-table-wrap">
+                        <div class="progress-table">
+                 
+                         
+            
+                           
+
+
+                           <table  class="progress-table" >
+                              <thead>
+                                  <tr >
+                                      <th  style="text-align: center; "><a>Activity</a></th>
+                                      <th  style="text-align: center; "><a>Task</a></th>
+                                      <th style="text-align: center;"><a>Decisions</a></th>
+                                     
+                                     
+                                
+                                      
+                                  </tr>
+                                 
+                              </thead>
+                              <tbody >
+                         
+                                
+                                  {% for act in process.activity_process.all %}
+                           
+                               {% if act.task_process.exists %}
+                               
+                               {% for task in act.task_process.all %}
+                                 
+                               {% if  task.decision_process.exists %}
+                               {% for var in  task.decision_process.all %}
+                                 
+                                  <tr >
+                                     <td  style="text-align: center;"><p>{{ act.activity_name  }}</p></td>
+                                     <td  style="text-align: center;"><p>{{ task.name  }}</p></td>
+                                        
+                                     <td style="text-align: center;" > <p>{{ var.decision_name }}</p> </td>
+                     
+                                    
+                                  
+                                  </tr>
+                                  {% endfor %}
+                                  {% endif %}
+                                  {% endfor %}
+                                  {% endif %}
+                                
+                                {% endfor %}
+                               
+                              </tbody>  
+                          </table>
+
+
+                           
+                        </div>
+                     </div>
+                  </div>
+
+
+
+              
+
+
+
+               </div>
+               <div class="col-lg-4">
+                  <div class="blog_right_sidebar">
+
+
+
+
+
+
+
+                     <aside class="single_sidebar_widget tag_cloud_widget">
+                        <h4 class="widget_title">Process Activities</h4>
+                        <ul class="list">
+                           
+                         {% for act in process.activity_process.all %}
+                           <li>
+                              <a href="{% url 'activities_detail' act.pk %}">{{ act.activity_name }}</a>
+                           </li>
+                           
+                         {% endfor %}
+                
+                        </ul>
+                     </aside>
+                   
+                
+
+
+
+
+                     <aside class="single_sidebar_widget popular_post_widget">
+                        <h3 class="widget_title">Process Tasks </h3>
+                         {% for act in process.activity_process.all %}
+                         <div class="media post_item">
+                         
+                           <div class="media-body" >
+                              <a href="{% url 'activities_detail' act.pk %}"><h3>{{act.activity_name}}</h3>
+                                 
+                              </a>
+                              
+                             
+                              <ol class="ordered-list">
+                                 {% for task in act.task_process.all %}
+                                 <li><span><a href="{% url 'activities_detail' act.pk %}">{{task.name}}</a></span></li>
+                                 {% empty %}
+ 
+                                 <ul><p><span>No task is added</span></p></ul>
+                                 
+                                 {% endfor %}
+                              
+                                
+                              </ol>
+                             
+
+
+                              
+                           </div>
+                        </div>
+                    
+                         {% endfor %}
+                     
+                     </aside>
+
+
+                
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!--================ Blog Area end =================-->
+   </main>
+   <footer>
+      <!-- Footer Start-->
+      <div class="footer-area">
+          <div class="container">
+             <div class="footer-top footer-padding">
+                  <div class="row justify-content-between">
+                      <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                          <div class="single-footer-caption mb-50">
+                              <div class="single-footer-caption mb-30">
+                                  <!-- logo -->
+                                  <div class="footer-logo">
+                                      <a href="index.html"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                                    
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                          <div class="single-footer-caption mb-50">
+                              <div class="footer-tittle">
+                                  <h4>All packages</h4>
+                                  <ul>
+                          
+                                      <li><a href="{% url 'home' %}">Home</a></li>
+                                      <li><a href="{% url 'data_base' %}">DataBase</a></li>
+                                      <li><a href="{% url 'add_items' %}">Add items</a></li>
+                                      <li><a href="{% url 'search_items' %}">Search items</a></li>
+                                  
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                          <div class="single-footer-caption mb-50">
+                              <div class="footer-tittle">
+                                  <h4>Quick Link</h4>
+                                  <ul>
+                                      <li><a href="#">Contact Us</a></li>
+                                   
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                          <div class="single-footer-caption mb-50">
+                              <div class="footer-tittle">
+                                  <h4>+1 514 648 256</h4>
+                                  <ul>
+                                      <li><a href="#">youremail@gmail.com</a></li>
+                                  </ul>
+                        
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+             </div>
+              <div class="footer-bottom">
+                  <div class="row d-flex justify-content-between align-items-center">
+                      <div class="col-xl-9 col-lg-9 ">
+                          <div class="footer-copy-right">
+                              <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This project has received funding from the European Union’s Horizon 2020 research and innovation programme under Grant Agreement No. 869952</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                          </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3">
+                          <!-- Footer Social -->
+                          <div class="footer-social f-right">
+                              <a href="#"><i class="fab fa-facebook-f"></i></a>
+                              <a href="#"><i class="fab fa-twitter"></i></a>
+                              <a href="#"><i class="fas fa-globe"></i></a>
+                              <a href="#"><i class="fab fa-instagram"></i></a>
+                          </div>
+                      </div>
+                  </div>
+             </div>
+          </div>
+      </div>
+      <!-- Footer End-->
+  </footer>
+  <!-- Scroll Up -->
+  <div id="back-top" >
+      <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+  </div>
+
+  <!-- JS here -->
+		<!-- All JS Custom Plugins Link Here here -->
+      <script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+      <script src="{% static 'assets/js/popper.min.js' %}"></script>
+      <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	   <!-- Jquery Mobile Menu -->
+      <script src="{% static 'assets/js/jquery.slicknav.min.js' %}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+      <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'assets/js/slick.min.js' %}"></script>
+
+		<!-- One Page, Animated-HeadLin -->
+      <script src="{% static 'assets/js/wow.min.js' %}"></script>
+		<script src="{% static 'assets/js/animated.headline.js' %}"></script>
+      <script src="{% static 'assets/js/jquery.magnific-popup.js' %}"></script>
+
+		<!-- Nice-select, sticky -->
+      <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.sticky.js' %}"></script>
+        
+      <!-- contact js -->
+      <script src="{% static 'assets/js/contact.js' %}"></script>
+      <script src="{% static 'assets/js/jquery.form.js' %}"></script>
+      <script src="{% static 'assets/js/jquery.validate.min.js' %}"></script>
+      <script src="{% static 'assets/js/mail-script.js' %}"></script>
+      <script src="{% static 'assets/js/jquery.ajaxchimp.min.js' %}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+      <script src="{% static 'assets/js/plugins.js' %}"></script>
+      <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

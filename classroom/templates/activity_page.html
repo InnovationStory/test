@@ -1,0 +1,159 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<section class="price section-padding " data-scroll-index="2">
+    <div class="container">
+        <div class="row">
+            
+            
+            <div class="section-head text-center col-sm-12">
+                <h4>Activities </h4>
+            
+            </div>
+            <div class="pricing-tables full-width">
+
+                <div class="row">
+
+                    {% for act in activities %}
+                    
+                    
+
+                    <div class="col-lg-4">
+                        <div class="item text-center active bg-img mb-md50" data-background="img/03.jpg">
+
+                       
+                                <h4>{{ act.activity_name }}</h4>
+                       
+
+                            <div class="value">
+                            
+                                <p>{{act.presentation|safe}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {% empty %}   
+                    
+                    <div class="section-head text-center col-sm-12">
+                        <li><a href="" class="butn butn-light mt-30"><span>Commencer à créer votre premier projet</span></a></li>  
+                    </div>
+                              
+                       {% endfor %} 
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<section class="price section-padding " data-scroll-index="2">
+    <div class="container">
+        <div class="row">
+            
+            
+            <div class="section-head text-center col-sm-12">
+                <h4>Skills </h4>
+            
+            </div>
+            <div class="pricing-tables full-width">
+
+                <div class="row">
+
+                    {% for projet in projet %}
+                    
+                    
+
+                    <div class="col-lg-4">
+                        <div class="item text-center active bg-img mb-md50" data-background="img/03.jpg">
+
+                       
+                                <h4>{{ projet.skills_name }}</h4>
+                       
+
+                            <div class="value">
+                            
+                                <p>{{projet.skills_maturity}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {% empty %}   
+                    
+                    <div class="section-head text-center col-sm-12">
+                        <li><a href="" class="butn butn-light mt-30"><span>Commencer à créer votre premier projet</span></a></li>  
+                    </div>
+                              
+                       {% endfor %} 
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="price section-padding " data-scroll-index="2">
+
+
+                    {% for dec in decision %}
+                    
+                    
+
+
+
+                       
+                                <p>{{ dec.decision_name }}</p>
+                       
+
+
+                    {% empty %}   
+                    
+                  
+                        <li><a href="" class="butn butn-light mt-30"><span>Commencer à créer votre premier projet</span></a></li>  
+                 
+                              
+                       {% endfor %} 
+     
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

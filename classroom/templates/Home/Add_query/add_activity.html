@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+    <div class="col-md-6 col-sm-8 col-12">
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.process_id|as_crispy_field:"bootstrap" }}
+        {{ form.activity_name|as_crispy_field:"bootstrap" }}
+        {{ form.definition|as_crispy_field:"bootstrap" }}
+        {{form.media}}
+        <div><button  class="btn btn-success">Save the activity</button></div>
+        
+  
+      </form>
+    </div>
+{% endblock %}

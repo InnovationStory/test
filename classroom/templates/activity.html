@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <h2 class="mb-3">Add Activity</h2>
+  <div class="row">
+    <div class="col-md-6 col-sm-8 col-12">
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.activity_name|as_crispy_field }}
+        {{ form.process_id|as_crispy_field }}
+        {{ form.presentation|as_crispy_field|safe }}
+        {{form.media}}
+        <button type="submit" class="btn btn-success">Save</button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,199 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title>INEDIT PROCESS HOME </title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico">
+
+  <!-- CSS here -->
+      <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/slicknav.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+
+<body>
+   <!-- Preloader Start -->
+   <div id="preloader-active">
+      <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+               <div class="preloader-circle"></div>
+               <div class="preloader-img pere-text">
+                  <img src="{% static 'assets/img/logo/loder.jpg" alt="">
+               </div>
+            </div>
+      </div>
+   </div>
+   <!-- Preloader Start-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <main>
+      <!-- Hero Start-->
+
+     <!--Hero End -->
+      <!--================Blog Area =================-->
+      <section class="blog_area single-post-area section-padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 posts-list">
+          
+            
+                  <div class="comments-area">
+                     <h4>Involved stakeholders</h4>
+
+                       
+                     <div class="comment-list">
+                        <div class="single-comment justify-content-between d-flex">
+
+                           <div class="user justify-content-between d-flex">
+                              <div class="thumb">
+                                 <img src="{% static 'assets/img/comment/test1.png' %}" alt="">
+                              </div>
+                              <div class="desc">
+                                 <p class="comment">
+                                 {{ var.definition}}
+                                 </p>
+                                 <div class="d-flex justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                       <h5>
+                                          <a href="#">{{ var.actor_name}} {{ var.prenom}}</a>
+                                          <a href="#"><strong>{{ var.actor_name}} {{ var.prenom}}</strong></a>
+                                       </h5>
+                                      
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     {% if  var.presentation.exists %}
+                     <div class="single-post">
+                
+                        <div class="blog_details">
+                           <h2>Presentation</h2>
+                        
+            
+                           <div class="quote-wrapper">
+                              <div class="quotes">
+                                {{ var.presentation}}
+                                presentation = RichTextField(blank=True, null=True)
+    adress = models.CharField(max_length=270,verbose_name= u"Adress  ",  null=True, blank=True)
+    contact = PhoneField(help_text="Contact", null=True, blank=True)
+    partenair_nam1= models.CharField(max_length=270,verbose_name= u"Partner ",  null=True, blank=True)
+    partenair_nam2= models.CharField(max_length=270,verbose_name= u"Partner ",  null=True, blank=True)
+    partenair_nam3= models.CharField(max_length=270,verbose_name= u"Partner  ",  null=True, blank=True)
+
+                              </div>
+                           </div>
+                 
+                        </div>
+                     </div>
+                     {% endif %}
+                
+                  </div>
+               </div>
+               <div class="col-lg-4">
+                  <div class="blog_right_sidebar">
+
+
+                     <aside class="single_sidebar_widget tag_cloud_widget">
+                        <h4 class="widget_title">Partners</h4>
+                        <ul class="list">
+                            {% if  partenair_nam1.exists %}
+                           
+                        <li>{{ var.partenair_nam1 }}</li>
+                 {% endif %}
+                 {% if partenair_nam2.exists %}
+                           
+                 <li>{{ var.partenair_nam2 }}</li>
+          {% endif %}
+          {% if partenair_nam3.exists %}
+                           
+          <li>{{var.partenair_nam3 }}</li>
+   {% endif %}
+   {% if partenair_nam4.exists %}
+                           
+   <li>{{ var.partenair_nam4 }}</li>
+{% endif %}
+                        </ul>
+                     </aside>
+                   
+                
+
+
+
+
+                
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!--================ Blog Area end =================-->
+   </main>
+
+  <!-- Scroll Up -->
+  <div id="back-top" >
+      <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+  </div>
+
+  <!-- JS here -->
+		<!-- All JS Custom Plugins Link Here here -->
+      <script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+      <script src="{% static 'assets/js/popper.min.js' %}"></script>
+      <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	   <!-- Jquery Mobile Menu -->
+      <script src="{% static 'assets/js/jquery.slicknav.min.js' %}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+      <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'assets/js/slick.min.js' %}"></script>
+
+		<!-- One Page, Animated-HeadLin -->
+      <script src="{% static 'assets/js/wow.min.js' %}"></script>
+		<script src="{% static 'assets/js/animated.headline.js' %}"></script>
+      <script src="{% static 'assets/js/jquery.magnific-popup.js' %}"></script>
+
+		<!-- Nice-select, sticky -->
+      <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.sticky.js' %}"></script>
+        
+      <!-- contact js -->
+      <script src="{% static 'assets/js/contact.js' %}"></script>
+      <script src="{% static 'assets/js/jquery.form.js' %}"></script>
+      <script src="{% static 'assets/js/jquery.validate.min.js' %}"></script>
+      <script src="{% static 'assets/js/mail-script.js' %}"></script>
+      <script src="{% static 'assets/js/jquery.ajaxchimp.min.js' %}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+      <script src="{% static 'assets/js/plugins.js' %}"></script>
+      <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
